@@ -1,0 +1,35 @@
+.mobile-apps {
+    &__wrap {
+        @extend %container;
+
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1.5fr 0.5fr;
+        gap: rem(64px);
+        margin-top: rem(64px);
+    }
+
+    &__heading {
+        color: #333;
+        font-size: rem(64px);
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: -4px;
+        margin-bottom: rem(80px);
+    }
+
+    &__app-list {
+        @include unlist();
+
+        display: flex;
+        align-items: center;
+        gap: rem(48px);
+    }
+
+    &__phone-wrap {
+        position: relative;
+        width: max-content;
+        margin-left: auto;
+        margin-right: rem(100px);
+    }
+}

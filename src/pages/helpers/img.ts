@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-base-to-string */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { parse } from 'path'
 
@@ -8,15 +9,15 @@ interface FileFormat {
 }
 
 const img = (
-    src: object,
+    src: string,
     block: { fn: (arg: { base: string; webp: string | undefined; avif: string | undefined }) => () => void }
 ) => {
-    const srcName = src.toString()
+    const srcName = src
     const { name, ext, dir } = parse(srcName)
 
     const file: FileFormat = {}
 
-    // this is so idiotic
+    // =/
     switch (ext) {
         case '.jpg':
             file.base = require(`../../assets/img/${dir ? `${dir}/${name}` : `${name}`}.jpg`) as string
@@ -32,7 +33,7 @@ const img = (
             file.base = require(`../../assets/img/${dir ? `${dir}/${name}` : `${name}`}.svg`) as string
             break
         default:
-            file.base = src.toString()
+            file.base = src
             break
     }
 

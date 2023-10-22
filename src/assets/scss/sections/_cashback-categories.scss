@@ -1,0 +1,56 @@
+.cashback-categories {
+    &__wrap {
+        @extend %container;
+
+        margin-top: rem(120px);
+    }
+
+    &__list {
+        @include unlist();
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: rem(20px);
+    }
+
+    &__cashback-item {
+        min-width: 1px;
+    }
+}
+
+.cashback-item {
+    &__wrap {
+        background: #fff;
+        border-radius: rem(56px);
+        box-shadow: rem(0 27px 39px) 0 rgba(0 0 0 / 4%);
+        padding: rem(56px 32px);
+        position: relative;
+        height: rem(492px);
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        font-size: rem(24px);
+        gap: rem(24px);
+        line-height: 140%;
+        font-family: Roboto, sans-serif;
+    }
+
+    &__number {
+        color: #333;
+        font-size: rem(150px);
+        font-weight: 700;
+        line-height: 80%;
+        letter-spacing: rem(-16px);
+    }
+
+    &__img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}

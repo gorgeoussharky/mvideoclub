@@ -1,0 +1,102 @@
+.cashback-conditions {
+    &__wrap {
+        @extend %container;
+
+        margin-top: rem(48px);
+    }
+
+    &__list {
+        @include unlist();
+
+        display: grid;
+        gap: rem(20px);
+    }
+}
+
+.condition-item {
+    &__wrap {
+        border-radius: rem(56px);
+        background: #e31235;
+        padding: rem(100px 80px);
+        padding-right: rem(130px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    &__row {
+        display: flex;
+        gap: rem(32px);
+        justify-content: space-between;
+    }
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: rem(48px);
+        line-height: 100%;
+        gap: rem(40px);
+        position: relative;
+        z-index: 10;
+
+        &-text {
+            span {
+                display: block;
+                font-size: rem(32px);
+                line-height: 100%;
+                margin-top: rem(32px);
+            }
+        }
+
+        &-number {
+            color: #f5f5f6;
+            font-size: rem(200px);
+            line-height: 100%; /* 200px */
+            letter-spacing: -25px;
+        }
+
+        &-notice {
+            font-size: rem(14px);
+            line-height: 130%;
+            text-transform: uppercase;
+            display: block;
+            position: absolute;
+            bottom: -50px;
+            white-space: nowrap;
+        }
+    }
+
+    &__points-list {
+        @include unlist();
+
+        margin-top: rem(48px);
+        display: flex;
+        gap: rem(80px);
+        position: relative;
+        z-index: 10;
+    }
+
+    &__point {
+        display: flex;
+        gap: rem(24px);
+
+        &-title {
+            font-size: rem(32px);
+            color: #fff;
+            line-height: 130%;
+
+            span {
+                font-family: rem(36px);
+                font-weight: 700;
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+.hero {
+    &__container {
+        @extend %container;
+
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__heading {
+        font-size: rem(96px);
+        font-weight: 500;
+        line-height: 100%;
+        letter-spacing: -4px;
+        max-width: rem(820px);
+
+        img,
+        svg,
+        picture {
+            display: block;
+            margin-bottom: rem(46px);
+        }
+    }
+
+    &__imgs {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: fit-content;
+    }
+
+    &__phone-wrap {
+        position: relative;
+        height: fit-content;
+        margin: auto;
+        right: rem(-50px);
+    }
+
+    &__push {
+        position: absolute;
+        left: rem(10px);
+        top: rem(90px);
+        filter: drop-shadow(rem(32px 24px 15px) rgba(#2c2c2c, 0.2));
+    }
+
+    &__donut {
+        position: absolute;
+        top: rem(-10px);
+        right: rem(-130px);
+        filter: drop-shadow(-5px 10px 15px rgba(#2c2c2c, 0.2));
+    }
+
+    &__toaster {
+        position: absolute;
+        bottom: rem(130px);
+        left: rem(-65px);
+        filter: drop-shadow(rem(16px 15px 15px) rgba(#2c2c2c, 0.2));
+    }
+
+    &__airpods {
+        top: rem(40px);
+        left: rem(-150px);
+        position: absolute;
+    }
+
+    &__cube {
+        position: absolute;
+        bottom: rem(70px);
+        right: rem(-150px);
+    }
+
+    &__cone {
+        position: absolute;
+        left: rem(-300px);
+        bottom: rem(-60px);
+    }
+
+    &__cheese {
+        position: absolute;
+        left: rem(-180px);
+        top: 0;
+    }
+}

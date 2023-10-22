@@ -2,6 +2,238 @@
 
 {{> ./layout/header title='Главная' }}
 
-<main class="frontpage"></main>
+<main class="mclub">
+    <section class="mclub__hero hero">
+        <div class="hero__wrap">
+            <div class="hero__container">
+                <h1 class="hero__heading">
+                    {{> picture src="logo.png" alt="M.Club" }}
+                    Больше выгоды с&nbsp;каждой покупки
+                </h1>
+                <div class="hero__imgs">
+                    <div class="hero__phone-wrap">
+                        {{> picture class="hero__phone" src="iphone.png" alt="" }}
+                        {{> picture class="hero__push" src="push.png" alt="" }}
+                    </div>
+                    {{> picture class="hero__airpods" src="airpods.png" alt="" }}
+                    {{> picture class="hero__toaster" src="toaster.png" alt="" }}
+                    {{> picture class="hero__donut" src="donut.png" alt="" }}
+                    {{> picture class="hero__cube" src="cube.png" alt="" }}
+                    {{> picture class="hero__cone" src="cone.png" alt="" }}
+                </div>
+            </div>
+
+            {{> picture class="hero__cheese" src="cheese.png" alt="" }}
+        </div>
+    </section>
+
+    <section class="mclub__cashback cashback">
+        <div class="cashback__container">
+            <div class="cashback__wrap">
+                <div class="cashback__circle">
+                    <div class="cashback__circle-wrap">
+                        <div class="cashback__circle-number">10</div>
+                        <div class="cashback__circle-text">Кэшбек</div>
+                        <div class="cashback__circle-text cashback__circle-text--right">за покупки</div>
+                    </div>
+
+                    {{> picture class="cashback__alice" src="alice.png" }}
+                    {{> picture class="cashback__kettle" src="kettle.png" }}
+                    {{> picture class="cashback__airpods" src="airpods2.png" }}
+                    {{> picture class="cashback__airpods-max" src="airpodsmax.png" }}
+                    {{> picture class="cashback__donut" src="donut.png" }}
+
+                    {{> picture class="cashback__push cashback__push--1" src="push_blender.png" }}
+                    {{> picture class="cashback__push cashback__push--2" src="push_vacuum.png" }}
+                    {{> picture class="cashback__push cashback__push--3" src="push_toaster.png" }}
+                </div>
+            </div>
+            {{> picture class="cashback__cheese" src="cheese.png" }}
+        </div>
+    </section>
+
+    <section class="mclub__cashback-categories cashback-categories">
+        <div class="cashback-categories__wrap">
+            <ul class="cashback-categories__list">
+                {{#each data.cashback}}
+                <li class="cashback-categories__cashback-item">
+                    <div class="cashback-item__wrap">
+                        <div class="cashback-item__title">
+                            <div class="cashback-item__number">
+                                {{this.number}}
+                            </div>
+                            {{{this.text}}}
+                        </div>
+
+                        {{> picture class="cashback-item__img" src=this.img }}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+
+    <section class="mclub__cashback-conditions cashback-conditions">
+        <div class="cashback-conditions__wrap">
+            <ul class="cashback-conditions__list">
+                <li class="cashback-conditions__condition-item">
+                    <div class="condition-item__wrap">
+                        <div class="condition-item__row">
+                            <div class="condition-item__heading">
+                                <div class="condition-item__heading-number condition-item__heading-number--percent">30
+                                </div>
+
+                                <div class="condition-item__heading-text">
+                                    Оплачивайте <br>
+                                    бонусами* <br>
+                                    от покупки
+
+
+                                    <small class="condition-item__heading-notice">
+                                        *один бонусный рубль равен 1 рублю рф
+                                    </small>
+                                </div>
+
+                            </div>
+
+                            <div class="condition-item__heading">
+                                <div class="condition-item__heading-number">365</div>
+
+                                <div class="condition-item__heading-text">
+                                    <div>Дней</div>
+                                    <span>
+                                        Срок действия <br> бонусов
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{> picture class="condition-item__img" src="condition1.png" }}
+                    </div>
+                </li>
+
+                <li class="cashback-conditions__condition-item">
+                    <div class="condition-item__wrap">
+                        <div class="condition-item__heading">
+                            Можно потратить каждый <br> накопленный бонусный рубль
+                        </div>
+
+                        <ul class="condition-item__points-list">
+                            <li class="condition-item__point">
+                                <a href="" data-dynamic-url data-url-xl="" data-url-sm=""
+                                    class="condition-item__point-icon">
+                                    <img src="@/assets/img/applink.svg" alt="">
+                                </a>
+
+                                <div class="condition-item__point-title">
+                                    <span>Онлайн</span>
+                                    В мобильном приложении <br> или на сайте
+                                </div>
+                            </li>
+
+                            <li class="condition-item__point">
+                                <a href="" class="condition-item__point-icon">
+                                    <img src="@/assets/img/shoplink.svg" alt="">
+                                </a>
+
+                                <div class="condition-item__point-title">
+                                    <span>Оффлайн</span>
+                                    В наших <br> магазинах
+                                </div>
+                            </li>
+                        </ul>
+
+                        {{> picture class="condition-item__img" src="condition2.png" }}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="mclub__mobile-apps mobile-apps">
+        <div class="mobile-apps__wrap">
+            <div class="mobile-apps__col">
+                <div class="mobile-apps__heading">
+                    Становитесь участником и&nbsp;получайте больше возможностей в <br> мобильном приложении
+                </div>
+
+                <ul class="mobile-apps__app-list">
+                    <li class="mobile-apps__app-item">
+                        <a href="" class="mobile-apps__app-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M41.8266 10.2172C44.1597 7.51322 45.7323 3.74714 45.3019 0C41.9399 0.128 37.8725 2.14767 35.4618 4.84844C33.297 7.24521 31.4073 11.0749 31.9153 14.7484C35.6656 15.0268 39.4936 12.9243 41.8266 10.2172ZM50.2366 34C50.3304 43.6863 59.1027 46.9084 59.1998 46.95C59.1286 47.1772 57.7987 51.5412 54.579 56.0531C51.793 59.9507 48.9034 63.8324 44.3506 63.9156C39.8787 63.9956 38.4387 61.375 33.3229 61.375C28.2103 61.375 26.6118 63.8321 22.3793 63.9953C17.9851 64.1521 14.636 59.7785 11.8305 55.8937C6.09016 47.9482 1.70561 33.4403 7.59482 23.6484C10.52 18.7877 15.7459 15.7049 21.4215 15.6281C25.7349 15.5481 29.8088 18.4094 32.446 18.4094C35.0832 18.4094 40.034 14.9694 45.2372 15.475C47.4149 15.5614 53.5306 16.3163 57.4557 21.8234C57.1386 22.0122 50.1589 25.9041 50.2366 34Z"
+                                    fill="#333333" />
+                            </svg>
+                        </a>
+                    </li>
+
+                    <li class="mobile-apps__app-item">
+                        <a href="" class="mobile-apps__app-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <g>
+                                    <path d="M12.6692 1.62667L47.6665 21.7493L40.1652 29.2507L12.6692 1.62667ZM5.4185 0L37.5438 32L5.42117 64C3.7865 63.2773 2.6665 61.6693 2.6665 59.8C2.6665 59.7387 2.6665 59.6773 2.66917 59.6187V59.6267V4.376C2.6665 4.32533 2.6665 4.264 2.6665 4.20267C2.6665 2.33333 3.7865 0.725333 5.39184 0.0133333L5.42117 0.00266667L5.4185 0ZM58.5438 28.2507C59.6478 29.0693 60.3545 30.3707 60.3545 31.8347C60.3545 31.8933 60.3545 31.9493 60.3518 32.008V32C60.3625 32.1147 60.3705 32.2507 60.3705 32.3867C60.3705 33.7627 59.7038 34.984 58.6745 35.7413L58.6638 35.7493L51.1625 39.9973L43.0398 32L51.1652 23.8747L58.5438 28.2507ZM12.6692 62.3733L40.1678 34.7493L47.6692 42.2507L12.6692 62.3733Z" fill="#333333"/>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+
+                    <li class="mobile-apps__app-item">
+                        <a href="" class="mobile-apps__app-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                <g>
+                                    <path d="M50.1215 -0.233643H13.6032C5.97225 -0.233643 -0.213867 5.95247 -0.213867 13.5834V50.1017C-0.213867 57.7327 5.97225 63.9188 13.6032 63.9188H50.1215C57.7525 63.9188 63.9386 57.7327 63.9386 50.1017V13.5834C63.9386 5.95247 57.7525 -0.233643 50.1215 -0.233643Z" fill="#333333"/>
+                                    <path d="M15.4241 3.96029C14.9404 3.96093 14.4767 4.15291 14.1349 4.49404C13.7932 4.83518 13.6013 5.29755 13.6016 5.77956C13.602 6.2617 13.7946 6.72394 14.1369 7.06464C14.4793 7.40534 14.9435 7.59661 15.4273 7.5964C15.9112 7.59619 16.3752 7.4045 16.7172 7.0635C17.0593 6.72249 17.2514 6.26008 17.2514 5.77794V5.7747C17.2506 5.29255 17.0576 4.83049 16.7149 4.49009C16.3723 4.14969 15.9079 3.95964 15.4241 3.96029ZM48.0689 3.96029C47.5852 3.96093 47.1215 4.15291 46.7798 4.49404C46.438 4.83518 46.2462 5.29755 46.2464 5.77956C46.2468 6.26184 46.4395 6.7242 46.7821 7.06493C47.1246 7.40565 47.589 7.59683 48.073 7.5964C48.5568 7.59619 49.0208 7.4045 49.3629 7.0635C49.7049 6.72249 49.8971 6.26008 49.8971 5.77794V5.7747C49.8962 5.29241 49.7031 4.83022 49.3603 4.4898C49.0174 4.14938 48.5529 3.95943 48.0689 3.96029Z" fill="#656565"/>
+                                    <path d="M15.352 5.52812C14.7177 5.56214 14.7493 6.48392 14.7493 6.48392C18.1586 13.1227 24.4346 16.3781 31.6728 16.3789C38.9013 16.3684 45.2396 13.0766 48.644 6.44747C48.644 6.44747 48.7785 5.19925 47.4501 5.6318C43.9589 11.4185 38.0945 14.8416 31.6768 14.8521C25.2478 14.8537 19.4036 11.4663 15.906 5.66906C15.6792 5.55971 15.4986 5.52002 15.352 5.52812ZM38.4209 31.33L36.4818 37.1054L34.5945 31.3341H32.7517L35.726 39.7306H37.1606L39.1046 34.2153L41.0453 39.7306H42.492L45.4607 31.3349H43.6641L41.7727 37.1062L39.8336 31.3308L38.4209 31.33ZM28.1209 31.3325L24.3584 39.7249H26.1267L26.8532 38.1L26.9051 37.9777H30.8142L31.5804 39.7249H33.3973L29.6688 31.3819L29.6364 31.3325H28.1209ZM55.3711 31.3325V39.7201H57.081V31.3333L55.3711 31.3325ZM6.34229 31.3341V39.733H8.0757V36.3221H11.988V39.7322H13.7222V31.3349H11.9888V34.7231H8.07651V31.3349L6.34229 31.3341ZM21.7437 31.3365V36.1439C21.7437 37.5087 21.0552 38.2378 19.8021 38.2378C18.5434 38.2378 17.85 37.4885 17.85 36.0856V31.3414H16.1158V36.1439C16.1158 38.5067 17.4523 39.861 19.7795 39.861C22.1285 39.861 23.4755 38.4808 23.4755 36.0742V31.3357L21.7437 31.3365ZM46.8588 31.3397V39.7265H53.3088V38.1972H48.5679V36.118H51.7196V34.5871H48.5679V32.8698H53.1444V31.3406L46.8588 31.3397ZM28.8548 33.4571L30.0908 36.2694L30.1751 36.463H27.5531L27.6357 36.2694L28.8548 33.4571Z" fill="white"/>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mobile-apps__col">
+                <div class="mobile-apps__phone-wrap">
+                    {{> picture class="mobile-apps__phone" src="iphone2.jpg"}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mclub__cashback-rules cashback-rules">
+        <div class="cashback-rules__wrap">
+            <div class="cashback-rules__col">
+                <div class="cashback-rules__heading">
+                    Правила программы лояльности
+                </div>
+
+                <a href="" class="cashback-rules__btn">Подробнее</a>
+            </div>
+
+            <div class="cashback-rules__col">
+                <div class="cashback-rules__heading">
+                    Остались вопросы ?
+                </div>
+
+                <div class="cashback-rules__text">
+                    Здесь вы&nbsp;найдете ответы на&nbsp;самые частые вопросы: об&nbsp;M.Club, Бонусных рублях, персональных <br> предложениях и&nbsp;многом другом
+                </div>
+
+                <a href="" class="cashback-rules__btn">Вопросы и ответы</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="mclub__line">
+        <svg width="1920" height="1993" viewBox="0 0 1920 1993" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M-293 1817.19C-211.089 1531.46 300.786 1062.58 768.999 1394C1354.27 1808.28 1794.25 1630.26 1944.5 1316C2092 1007.5 2032.5 653.6 1542.5 548C1052.5 442.4 1407.83 -9 1565.5 -173"
+                stroke="#EEEEEE" stroke-width="350" stroke-linecap="round" />
+        </svg>
+    </div>
+</main>
 
 {{> ./layout/footer }}

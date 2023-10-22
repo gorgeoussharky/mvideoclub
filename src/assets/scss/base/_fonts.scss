@@ -31,4 +31,17 @@
     }
 }
 
-/* @include font-face("Montserrat", "@assets/fonts/Montserrat-Black", 900, normal, "modern"); */
+@include font-face(
+    "StyreneBLC",
+    "@assets/fonts/StyreneBLC-Medium",
+    500,
+    normal,
+    "modern"
+);
+@include font-face(
+    "StyreneBLC",
+    "@assets/fonts/StyreneBLC-Regular",
+    400,
+    normal,
+    "modern"
+);

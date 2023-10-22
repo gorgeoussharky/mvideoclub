@@ -1,2 +1,19 @@
-[
-]
+{
+    "cashback": [
+        {
+            "number": 3,
+            "text": "Кэшбэк на <br> цифровую технику",
+            "img": "cashback_item_1.jpg"
+        },
+        {
+            "number": 5,
+            "text": "Кэшбэк на <br> цифровую технику",
+            "img": "cashback_item_2.jpg"
+        },
+        {
+            "number": 10,
+            "text": "Кэшбэк на <br> аксессуары и&nbsp;сервисы",
+            "img": "cashback_item_3.jpg"
+        }
+    ]
+}

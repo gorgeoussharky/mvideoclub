@@ -32,3 +32,22 @@ body {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+%container {
+    width: calc(100% - 40px);
+    max-width: 1516px;
+    margin: auto;
+}
+
+.mclub {
+    font-family: StyreneBLC, sans-serif;
+    background-color: #f5f5f6;
+    padding: rem(48px 0);
+
+    &__line {
+        position: absolute;
+        top: rem(-50px);
+        right: 0;
+        z-index: 1;
+    }
+}

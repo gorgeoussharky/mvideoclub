@@ -1,0 +1,42 @@
+.cashback-rules {
+    &__wrap {
+        @extend %container;
+
+        border-radius: rem(40px);
+        background: #fff;
+        box-shadow: rem(0 27px 39px 0) rgba(0 0 0 / 4%);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+        z-index: 10;
+    }
+
+    &__col {
+        padding: rem(80px);
+
+        &:nth-of-type(odd) {
+            border-right: 1px solid #b7b7b7;
+        }
+    }
+
+    &__heading {
+        color: #333;
+        font-size: rem(48px);
+        line-height: 120%;
+        letter-spacing: -2px;
+        margin-bottom: rem(32px);
+    }
+
+    &__text {
+        color: #b7b7b7;
+        font-size: rem(20px);
+        line-height: 140%; /* 28px */
+    }
+
+    &__btn {
+        @extend %btn-main;
+
+        max-width: rem(270px);
+        margin-top: rem(48px);
+    }
+}

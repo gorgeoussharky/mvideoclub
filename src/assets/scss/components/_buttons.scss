@@ -1,3 +1,17 @@
-%btn-accent {
-    color: $accent;
+%btn {
+    padding: rem(21px 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(24px);
+    font-weight: 500;
+    border-radius: rem(4px);
+    text-decoration: none;
+}
+
+%btn-main {
+    @extend %btn;
+
+    background: #e31235;
+    color: #fff;
 }
