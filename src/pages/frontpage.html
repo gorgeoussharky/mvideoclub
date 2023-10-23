@@ -4,48 +4,83 @@
 
 <main class="mclub">
     <section class="mclub__hero hero">
-        <div class="hero__wrap">
-            <h1 class="hero__heading">
+        <div class="hero__wrap" data-parallax>
+            <h1 class="hero__heading" data-fade-right>
                 {{> picture src="logo.png" alt="M.Club" }}
                 Больше выгоды с&nbsp;каждой покупки
             </h1>
             <div class="hero__imgs">
-                <div class="hero__phone-wrap">
-                    {{> picture class="hero__phone" src="iphone.png" alt="" }}
-                    {{> picture class="hero__push" src="push.png" alt="" }}
+                <div class="hero__phone-wrap" data-fade-left>
+                    <div class="hero__phone">
+                        {{> picture data-layer=true data-depth="0.1" src="iphone.png" alt="" }}
+                    </div>
+                    <div class="hero__push">
+                        {{> picture data-layer=true data-depth="0.1" src="push.png" alt="" }}
+                    </div>
                 </div>
-                {{> picture class="hero__airpods" src="airpods.png" alt="" }}
-                {{> picture class="hero__toaster" src="toaster.png" alt="" }}
-                {{> picture class="hero__donut" src="donut.png" alt="" }}
-                {{> picture class="hero__cube" src="cube.png" alt="" }}
-                {{> picture class="hero__cone" src="cone.png" alt="" }}
+                <div data-animate class="hero__airpods">
+                    {{> picture data-depth="0.2" data-layer=true src="airpods.png" alt="" }}
+                </div>
+                <div data-animate class="hero__toaster">
+                    {{> picture  data-depth="0.2" data-layer=true src="toaster.png" alt="" }}
+                </div>
+                <div data-animate class="hero__donut">
+                    {{> picture  data-depth="0.2" data-layer=true src="donut.png" alt="" }}
+                </div>
+                <div data-animate class="hero__cube">
+                    {{> picture  data-depth="0.2" data-layer=true src="cube.png" alt="" }}
+                </div>
+                <div data-animate class="hero__cone">
+                    {{> picture  data-depth="0.2" data-layer=true src="cone.png" alt="" }}
+                </div>
+            </div>
+
+            <div data-animate class="hero__cheese">
+                {{> picture data-depth="0.2" data-layer=true src="cheese.png" alt="" }}
             </div>
         </div>
 
-        {{> picture class="hero__cheese" src="cheese.png" alt="" }}
-        </div>
+        
     </section>
 
     <section class="mclub__cashback cashback">
-        <div class="cashback__wrap">
+        <div class="cashback__wrap" data-parallax>
             <div class="cashback__circle">
-                <div class="cashback__circle-wrap">
+                <div class="cashback__circle-content">
                     <div class="cashback__circle-number">10</div>
                     <div class="cashback__circle-text">Кэшбек</div>
                     <div class="cashback__circle-text cashback__circle-text--right">за покупки</div>
                 </div>
 
-                {{> picture class="cashback__alice" src="alice.png" }}
-                {{> picture class="cashback__kettle" src="kettle.png" }}
-                {{> picture class="cashback__airpods" src="airpods2.png" }}
-                {{> picture class="cashback__airpods-max" src="airpodsmax.png" }}
-                {{> picture class="cashback__donut" src="donut.png" }}
+                <div data-animate class="cashback__alice">
+                    {{> picture  data-depth="0.1" data-layer=true  src="alice.png" }}
+                </div>
+                <div data-animate class="cashback__kettle" >
+                    {{> picture  data-depth="0.1" data-layer=true src="kettle.png" }}
+                </div>
+                <div data-animate class="cashback__airpods">
+                    {{> picture  data-depth="0.1" data-layer=true  src="airpods2.png" }}
+                </div>
+                <div data-animate class="cashback__airpods-max">
+                    {{> picture  data-depth="0.1" data-layer=true src="airpodsmax.png" }}
+                </div>
+                <div  data-animate class="cashback__donut">
+                    {{> picture data-depth="0.1" data-layer=true src="donut.png" }}
+                </div>
+                <div data-animate class="cashback__cheese" >
+                    {{> picture data-depth="0.1" data-layer=true src="cheese.png" }}
+                </div>
 
-                {{> picture class="cashback__push cashback__push--1" src="push_blender.png" }}
-                {{> picture class="cashback__push cashback__push--2" src="push_vacuum.png" }}
-                {{> picture class="cashback__push cashback__push--3" src="push_toaster.png" }}
+                <div data-animate class="cashback__push cashback__push--1">
+                    {{> picture src="push_blender.png" }}
+                </div>
+                <div data-animate class="cashback__push cashback__push--2">
+                    {{> picture src="push_vacuum.png" }}
+                </div>
+                <div data-animate class="cashback__push cashback__push--3">
+                    {{> picture src="push_toaster.png" }}
+                </div>
             </div>
-            {{> picture class="cashback__cheese" src="cheese.png" }}
         </div>
     </section>
 
@@ -53,7 +88,7 @@
         <div class="cashback-categories__wrap">
             <ul class="cashback-categories__list">
                 {{#each data.cashback}}
-                <li class="cashback-categories__cashback-item">
+                <li class="cashback-categories__cashback-item" data-fade-right>
                     <div class="cashback-item__wrap">
                         <div class="cashback-item__title">
                             <div class="cashback-item__number">
@@ -73,7 +108,7 @@
     <section class="mclub__cashback-conditions cashback-conditions">
         <div class="cashback-conditions__wrap">
             <ul class="cashback-conditions__list">
-                <li class="cashback-conditions__condition-item condition-item condition-item--first">
+                <li class="cashback-conditions__condition-item condition-item condition-item--first" data-fade-right>
                     <div class="condition-item__wrap">
                         <div class="condition-item__row">
                             <div class="condition-item__heading">
@@ -105,11 +140,11 @@
                             </div>
                         </div>
 
-                        <img class="condition-item__img" src="@/assets/img/condition1.svg" alt="">
+                        <img loading="lazy" class="condition-item__img" src="@/assets/img/condition1.svg" alt="">
                     </div>
                 </li>
 
-                <li class="cashback-conditions__condition-item condition-item condition-item--second">
+                <li class="cashback-conditions__condition-item condition-item condition-item--second" data-fade-right>
                     <div class="condition-item__wrap">
                         <div class="condition-item__heading condition-item__heading--roboto">
                             Можно потратить каждый <br> накопленный бонусный рубль
@@ -145,11 +180,11 @@
                         <picture class="condition-item__img">
                             {{#img 'condition2_sm.png'}}
                             <source media="(max-width: 991px)" srcset="{{avif}}" type="image/avif">
-                            <source media="(max-width: 991px)" srcset="{{webp}}" type="image/webo">
+                            <source media="(max-width: 991px)" srcset="{{webp}}" type="image/webp">
                             {{/img}}
                             {{#img 'condition2.png'}}
                             <source srcset="{{avif}}" type="image/avif">
-                            <img src="{{webp}}" alt="">
+                            <img loading="lazy" src="{{webp}}" alt="">
                             {{/img}}
                         </picture>
                     </div>
@@ -160,7 +195,7 @@
 
     <section class="mclub__mobile-apps mobile-apps">
         <div class="mobile-apps__wrap">
-            <div class="mobile-apps__col">
+            <div class="mobile-apps__col" data-fade-right>
                 <div class="mobile-apps__heading">
                     Становитесь участником и&nbsp;получайте больше возможностей в <br> мобильном приложении
                 </div>
@@ -249,20 +284,21 @@
 
 
 
-    <div class="mclub__line mclub__line--top">
-        <svg width="1920" height="1993" viewBox="0 0 1920 1993" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M-293 1817.19C-211.089 1531.46 300.786 1062.58 768.999 1394C1354.27 1808.28 1794.25 1630.26 1944.5 1316C2092 1007.5 2032.5 653.6 1542.5 548C1052.5 442.4 1407.83 -9 1565.5 -173"
-                stroke="#EEEEEE" stroke-width="350" stroke-linecap="round" />
-        </svg>
-    </div>
-
-    <div class="mclub__line mclub__line--bottom">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="2386" viewBox="0 0 1920 2386" fill="none">
-            <path
-                d="M2141.8 2231.19C2059.89 1945.46 1548.01 1476.58 1079.8 1808C494.534 2222.28 54.5529 2044.26 -95.699 1730C-243.199 1421.5 103.3 1103.1 593.3 997.5C1083.3 891.9 133.467 339.5 -24.1997 175.5"
-                stroke="#EEEEEE" stroke-width="350" stroke-linecap="round" />
-        </svg>
+    <div class="mclub__lines-wrap" >
+        <div class="mclub__line mclub__line--top">
+            <svg width="1920" height="1993" viewBox="0 0 1920 1993" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M-293 1817.19C-211.089 1531.46 300.786 1062.58 768.999 1394C1354.27 1808.28 1794.25 1630.26 1944.5 1316C2092 1007.5 2032.5 653.6 1542.5 548C1052.5 442.4 1407.83 -9 1565.5 -173"
+                    stroke="#EEEEEE" stroke-width="350" stroke-linecap="round" />
+            </svg>
+        </div>
+        <div class="mclub__line mclub__line--bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="2386" viewBox="0 0 1920 2386" fill="none">
+                <path
+                    d="M2141.8 2231.19C2059.89 1945.46 1548.01 1476.58 1079.8 1808C494.534 2222.28 54.5529 2044.26 -95.699 1730C-243.199 1421.5 103.3 1103.1 593.3 997.5C1083.3 891.9 133.467 339.5 -24.1997 175.5"
+                    stroke="#EEEEEE" stroke-width="350" stroke-linecap="round" />
+            </svg>
+        </div>
     </div>
 </main>
 

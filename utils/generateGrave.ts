@@ -29,7 +29,7 @@ export const graveyardTemplate = (pages: string[]) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel='stylesheet'
                 href='https://use.fontawesome.com/releases/v5.0.13/css/all.css?ver=5.8' media='all' />
-            <link rel="stylesheet" href="http://graveyard.crazytest.studio/css/style.min.css">
+            <link rel="stylesheet" href="https://graveyard.crazytest.studio/css/style.min.css">
             <title>Роадмап</title>
         </head>
 

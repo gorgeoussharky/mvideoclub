@@ -1,4 +1,8 @@
-<picture {{#if class}} class='{{class}}' {{/if}}>
+<picture {{#if class}} class='{{class}}' {{/if}}  
+{{#if data-animate }} data-animate {{/if}}
+{{#if data-layer }} data-layer {{/if}}
+{{#if data-depth }} data-depth="{{data-depth}}" {{/if}}
+>
     {{#img src}}
         <source srcset='{{avif}}' type='image/avif' >
         <img {{#unless unlazy}} loading="lazy" {{/unless}} src='{{webp}}' alt='{{alt}}'>

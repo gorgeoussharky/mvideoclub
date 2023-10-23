@@ -16,6 +16,7 @@
         @include media-breakpoint-down(md) {
             align-items: flex-start;
             flex-direction: column;
+            padding-top: rem(32px);
         }
     }
 
@@ -239,8 +240,12 @@
 
     &__cheese {
         position: absolute;
-        left: rem(-180px);
+        left: rem(-360px);
         top: 0;
+
+        img {
+            max-width: rem(285px);
+        }
 
         @media (width <= 1700px) {
             left: rem(-60px);

@@ -7,13 +7,16 @@
         "> 5%"
     ],
     "dependencies": {
-        "bootstrap": "^5.3.2"
+        "bootstrap": "^5.3.2",
+        "gsap": "^3.12.2",
+        "parallax-js": "^3.1.0"
     },
     "devDependencies": {
         "@html-eslint/eslint-plugin": "^0.19.0",
         "@html-eslint/parser": "^0.19.0",
         "@principalstudio/html-webpack-inject-preload": "^1.2.7",
         "@types/node": "^20.8.7",
+        "@types/parallax-js": "^3.1.2",
         "@types/webpack-env": "^1.18.3",
         "@typescript-eslint/eslint-plugin": "^6.8.0",
         "@typescript-eslint/parser": "^6.8.0",
