@@ -7,6 +7,16 @@
     font-weight: 500;
     border-radius: rem(4px);
     text-decoration: none;
+    font-family: Roboto, sans-serif;
+
+    @media (width <= 1700px) {
+        font-size: rem(20px);
+    }
+
+    @include media-breakpoint-down(lg) {
+        font-size: rem(16px);
+        padding: rem(14px 10px);
+    }
 }
 
 %btn-main {
@@ -14,4 +24,10 @@
 
     background: #e31235;
     color: #fff;
+    transition: 500ms;
+
+    &:hover {
+        background: #bd0f2c;
+        transition: 500ms;
+    }
 }

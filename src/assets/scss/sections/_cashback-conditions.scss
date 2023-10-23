@@ -3,6 +3,8 @@
         @extend %container;
 
         margin-top: rem(48px);
+        z-index: 10;
+        position: relative;
     }
 
     &__list {
@@ -10,6 +12,15 @@
 
         display: grid;
         gap: rem(20px);
+
+        @include media-breakpoint-down(lg) {
+            grid-template-columns: 1fr 1fr;
+            align-items: stretch;
+        }
+
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: 1fr;
+        }
     }
 }
 
@@ -21,6 +32,17 @@
         padding-right: rem(130px);
         position: relative;
         overflow: hidden;
+
+        @include media-breakpoint-down(lg) {
+            padding: rem(42px 22px);
+            margin: auto;
+            border-radius: rem(32px);
+            height: 100%;
+        }
+
+        @include media-breakpoint-down(sm) {
+            max-width: rem(320px);
+        }
     }
 
     &__img {
@@ -28,38 +50,136 @@
         right: 0;
         top: 0;
         bottom: 0;
+
+        img {
+            max-height: 100%;
+            object-fit: contain;
+        }
     }
 
     &__row {
         display: flex;
         gap: rem(32px);
         justify-content: space-between;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+        }
     }
 
     &__heading {
         display: flex;
         align-items: center;
-        color: #fff;
+        color: #f5f5f6;
         font-size: rem(48px);
         line-height: 100%;
         gap: rem(40px);
         position: relative;
         z-index: 10;
 
+        @include media-breakpoint-down(xxl) {
+            font-size: rem(32px);
+        }
+
+        @include media-breakpoint-down(lg) {
+            font-size: rem(24px);
+            flex-direction: column;
+            gap: rem(18px);
+            text-align: center;
+
+            br {
+                display: none;
+            }
+        }
+
+        &--roboto {
+            font-family: Roboto, sans-serif;
+            line-height: 130%;
+        }
+
         &-text {
+            @include media-breakpoint-down(lg) {
+                text-align: center;
+                max-width: rem(300px);
+                letter-spacing: -1px;
+                line-height: 110%;
+
+                br {
+                    display: none;
+                }
+            }
+
             span {
                 display: block;
                 font-size: rem(32px);
                 line-height: 100%;
                 margin-top: rem(32px);
+
+                @include media-breakpoint-down(lg) {
+                    margin-top: rem(16px);
+                    font-size: rem(16px);
+                }
             }
         }
 
         &-number {
             color: #f5f5f6;
             font-size: rem(200px);
-            line-height: 100%; /* 200px */
-            letter-spacing: -25px;
+            line-height: 100%;
+            letter-spacing: rem(-25px);
+
+            @include media-breakpoint-down(xxl) {
+                font-size: rem(160px);
+                letter-spacing: rem(-20px);
+            }
+
+            @include media-breakpoint-down(lg) {
+                font-size: rem(130px);
+                letter-spacing: rem(-10px);
+            }
+
+            &--percent {
+                position: relative;
+                margin-right: rem(10px);
+
+                &::before {
+                    content: "";
+                    background-image: url("@/assets/img/cashback_from.svg");
+                    width: rem(40px);
+                    height: rem(40px);
+                    background-size: contain;
+                    position: absolute;
+                    bottom: 0;
+                    top: rem(35px);
+                    margin: auto;
+                    left: rem(-10px);
+
+                    @include media-breakpoint-down(lg) {
+                        width: rem(24px);
+                        height: rem(24px);
+                        top: rem(20px);
+                        left: rem(-3px);
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    background-image: url("@/assets/img/cashback_percentage.svg");
+                    width: rem(56px);
+                    height: rem(56px);
+                    background-size: contain;
+                    position: absolute;
+                    top: rem(24px);
+                    right: rem(-40px);
+                    filter: drop-shadow(rem(0 27px 39px) rgba(0 0 0 / 4%));
+
+                    @include media-breakpoint-down(lg) {
+                        width: rem(32px);
+                        height: rem(32px);
+                        right: rem(-18px);
+                    }
+                }
+            }
         }
 
         &-notice {
@@ -68,8 +188,16 @@
             text-transform: uppercase;
             display: block;
             position: absolute;
-            bottom: -50px;
+            bottom: rem(-50px);
             white-space: nowrap;
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+
+            @include media-breakpoint-down(lg) {
+                font-size: rem(12px);
+                position: static;
+                margin-top: rem(16px);
+            }
         }
     }
 
@@ -81,21 +209,122 @@
         gap: rem(80px);
         position: relative;
         z-index: 10;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            gap: rem(24px);
+            margin-top: rem(32px);
+        }
     }
 
     &__point {
         display: flex;
         gap: rem(24px);
+        font-family: Roboto, sans-serif;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: rem(16px);
+        }
+
+        &-icon {
+            width: rem(96px);
+            height: rem(96px);
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            @include media-breakpoint-down(xxl) {
+                width: rem(56px);
+                height: rem(56px);
+            }
+        }
 
         &-title {
             font-size: rem(32px);
             color: #fff;
             line-height: 130%;
 
+            @include media-breakpoint-down(xxl) {
+                font-size: rem(16px);
+                max-width: rem(200px);
+
+                br {
+                    display: none;
+                }
+            }
+
             span {
-                font-family: rem(36px);
+                font-size: rem(36px);
                 font-weight: 700;
                 display: block;
+                margin-bottom: rem(8px);
+
+                @include media-breakpoint-down(xxl) {
+                    font-size: rem(20px);
+                    margin-bottom: rem(4px);
+                }
+            }
+        }
+    }
+
+    &--first {
+        .condition-item__wrap {
+            padding-top: rem(110px);
+            padding-bottom: rem(110px);
+
+            @include media-breakpoint-down(xxl) {
+                padding-top: rem(50px);
+                padding-bottom: rem(80px);
+            }
+
+            @include media-breakpoint-down(lg) {
+                padding: rem(34px 22px);
+            }
+        }
+
+        .condition-item__img {
+            @include media-breakpoint-down(lg) {
+                top: unset;
+                bottom: rem(180px);
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
+
+        .condition-item__row {
+            @include media-breakpoint-down(lg) {
+                gap: rem(200px);
+            }
+        }
+    }
+
+    &--second {
+        .condition-item__wrap {
+            padding-top: rem(80px);
+            padding-bottom: rem(80px);
+
+            @include media-breakpoint-down(lg) {
+                padding: rem(34px 22px);
+                padding-bottom: rem(220px);
+            }
+        }
+
+        .condition-item__img {
+            bottom: 0;
+            top: unset;
+
+            @include media-breakpoint-down(lg) {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
             }
         }
     }

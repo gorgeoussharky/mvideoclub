@@ -1,5 +1,5 @@
 .hero {
-    &__container {
+    &__wrap {
         @extend %container;
 
         min-height: 100vh;
@@ -7,10 +7,16 @@
         align-items: center;
         position: relative;
         z-index: 10;
-    }
 
-    &__wrap {
-        position: relative;
+        @include media-breakpoint-down(xl) {
+            min-height: 1px;
+            padding-top: rem(10vh);
+        }
+
+        @include media-breakpoint-down(md) {
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
 
     &__heading {
@@ -20,21 +26,46 @@
         letter-spacing: -4px;
         max-width: rem(820px);
 
+        @include media-breakpoint-down(xxl) {
+            font-size: rem(64px);
+            max-width: rem(600px);
+        }
+
+        @include media-breakpoint-down(md) {
+            text-align: center;
+            font-size: rem(32px);
+            letter-spacing: normal;
+            max-width: rem(320px);
+            margin: 0 auto;
+        }
+
         img,
         svg,
         picture {
             display: block;
             margin-bottom: rem(46px);
+
+            @include media-breakpoint-down(xl) {
+                max-width: rem(180px);
+                margin-bottom: rem(24px);
+            }
+
+            @include media-breakpoint-down(md) {
+                max-width: rem(95px);
+                margin: auto;
+                margin-bottom: rem(24px);
+            }
         }
     }
 
     &__imgs {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        position: relative;
         margin: auto;
         height: fit-content;
+
+        @include media-breakpoint-down(md) {
+            margin-top: rem(48px);
+        }
     }
 
     &__phone-wrap {
@@ -42,6 +73,34 @@
         height: fit-content;
         margin: auto;
         right: rem(-50px);
+
+        @include media-breakpoint-down(xl) {
+            right: 0;
+            left: 0;
+            width: fit-content;
+        }
+    }
+
+    &__phone {
+        display: block;
+        width: fit-content;
+        margin: auto;
+
+        img {
+            max-width: rem(490px);
+
+            @media (width <= 1700px) {
+                max-width: rem(400px);
+            }
+
+            @include media-breakpoint-down(xxl) {
+                max-width: rem(320px);
+            }
+
+            @include media-breakpoint-down(lg) {
+                max-width: rem(220px);
+            }
+        }
     }
 
     &__push {
@@ -49,6 +108,24 @@
         left: rem(10px);
         top: rem(90px);
         filter: drop-shadow(rem(32px 24px 15px) rgba(#2c2c2c, 0.2));
+
+        @media (width <= 1700px) {
+            left: rem(40px);
+            top: rem(70px);
+
+            img {
+                max-width: rem(280px);
+            }
+        }
+
+        @include media-breakpoint-down(xxl) {
+            top: rem(40px);
+            left: rem(20px);
+
+            img {
+                max-width: 150px;
+            }
+        }
     }
 
     &__donut {
@@ -56,6 +133,22 @@
         top: rem(-10px);
         right: rem(-130px);
         filter: drop-shadow(-5px 10px 15px rgba(#2c2c2c, 0.2));
+
+        @media (width <= 1700px) {
+            right: rem(-80px);
+
+            img {
+                max-width: rem(105px);
+            }
+        }
+
+        @include media-breakpoint-down(xxl) {
+            right: rem(-30px);
+
+            img {
+                max-width: rem(85px);
+            }
+        }
     }
 
     &__toaster {
@@ -63,29 +156,107 @@
         bottom: rem(130px);
         left: rem(-65px);
         filter: drop-shadow(rem(16px 15px 15px) rgba(#2c2c2c, 0.2));
+
+        @media (width <= 1700px) {
+            left: 0;
+
+            img {
+                max-width: rem(175px);
+            }
+        }
+
+        @include media-breakpoint-down(xxl) {
+            left: rem(-20px);
+            bottom: rem(80px);
+
+            img {
+                max-width: rem(84px);
+            }
+        }
     }
 
     &__airpods {
         top: rem(40px);
-        left: rem(-150px);
+        left: rem(-200px);
         position: absolute;
+
+        @media (width <= 1700px) {
+            left: rem(-60px);
+
+            img {
+                max-width: rem(125px);
+            }
+        }
+
+        @include media-breakpoint-down(xxl) {
+            left: rem(-40px);
+            top: rem(-10px);
+
+            img {
+                max-width: 75px;
+            }
+        }
     }
 
     &__cube {
         position: absolute;
         bottom: rem(70px);
         right: rem(-150px);
+
+        @include media-breakpoint-down(xxl) {
+            right: rem(-100px);
+            bottom: 0;
+
+            img {
+                max-width: 85px;
+            }
+        }
     }
 
     &__cone {
         position: absolute;
         left: rem(-300px);
         bottom: rem(-60px);
+
+        @media (width <= 1700px) {
+            left: rem(-100px);
+
+            img {
+                max-width: rem(65px);
+            }
+        }
+
+        @include media-breakpoint-down(xxl) {
+            left: unset;
+            right: rem(30px);
+            bottom: rem(-50px);
+
+            img {
+                max-width: 34px;
+            }
+        }
     }
 
     &__cheese {
         position: absolute;
         left: rem(-180px);
         top: 0;
+
+        @media (width <= 1700px) {
+            left: rem(-60px);
+
+            img {
+                max-width: rem(125px);
+            }
+        }
+
+        @include media-breakpoint-down(xxl) {
+            left: rem(-40px);
+            top: 0;
+
+            img {
+                max-width: 95px;
+            }
+        }
     }
 }

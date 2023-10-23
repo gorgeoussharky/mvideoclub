@@ -3,6 +3,8 @@
         @extend %container;
 
         margin-top: rem(120px);
+        position: relative;
+        z-index: 10;
     }
 
     &__list {
@@ -11,6 +13,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: rem(20px);
+
+        @include media-breakpoint-down(lg) {
+            gap: rem(16px);
+        }
+
+        @include media-breakpoint-down(md) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__cashback-item {
@@ -26,6 +36,19 @@
         padding: rem(56px 32px);
         position: relative;
         height: rem(492px);
+        overflow: hidden;
+
+        @include media-breakpoint-down(lg) {
+            padding: rem(40px 24px);
+            margin: auto;
+            height: rem(368px);
+            border-radius: rem(32px);
+        }
+
+        @include media-breakpoint-down(md) {
+            max-width: rem(320px);
+            height: rem(328px);
+        }
     }
 
     &__title {
@@ -37,6 +60,11 @@
         gap: rem(24px);
         line-height: 140%;
         font-family: Roboto, sans-serif;
+
+        @include media-breakpoint-down(lg) {
+            gap: rem(24px);
+            font-size: rem(16px);
+        }
     }
 
     &__number {
@@ -45,6 +73,30 @@
         font-weight: 700;
         line-height: 80%;
         letter-spacing: rem(-16px);
+        position: relative;
+        margin-right: rem(10px);
+
+        &::after {
+            content: "";
+            width: rem(52px);
+            height: rem(52px);
+            position: absolute;
+            right: rem(-40px);
+            top: rem(-10px);
+            background-image: url("@/assets/img/cashback_percentage_red.svg");
+            background-size: contain;
+
+            @include media-breakpoint-down(lg) {
+                width: rem(32px);
+                height: rem(32px);
+                right: rem(-25px);
+            }
+        }
+
+        @include media-breakpoint-down(lg) {
+            font-size: rem(86px);
+            letter-spacing: rem(-6px);
+        }
     }
 
     &__img {
@@ -52,5 +104,15 @@
         left: 0;
         bottom: 0;
         right: 0;
+
+        img {
+            object-fit: contain;
+            max-height: 50%;
+            max-width: 100%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            position: absolute;
+        }
     }
 }
