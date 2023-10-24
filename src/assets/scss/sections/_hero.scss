@@ -2,21 +2,14 @@
     &__wrap {
         @extend %container;
 
-        min-height: 100vh;
         display: flex;
         align-items: center;
         position: relative;
         z-index: 10;
 
-        @include media-breakpoint-down(xl) {
-            min-height: 1px;
-            padding-top: rem(10vh);
-        }
-
         @include media-breakpoint-down(md) {
             align-items: flex-start;
             flex-direction: column;
-            padding-top: rem(32px);
         }
     }
 
@@ -27,7 +20,7 @@
         letter-spacing: -4px;
         max-width: rem(820px);
 
-        @include media-breakpoint-down(xxl) {
+        @include media-breakpoint-down(lg) {
             font-size: rem(64px);
             max-width: rem(600px);
         }
@@ -44,17 +37,23 @@
         svg,
         picture {
             display: block;
-            margin-bottom: rem(46px);
+            margin-bottom: rem(40px);
+            width: rem(225px);
 
-            @include media-breakpoint-down(xl) {
-                max-width: rem(180px);
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: rem(180px);
                 margin-bottom: rem(24px);
             }
 
             @include media-breakpoint-down(md) {
-                max-width: rem(95px);
+                width: rem(95px);
                 margin: auto;
-                margin-bottom: rem(24px);
+                margin-bottom: rem(20px);
             }
         }
     }
@@ -75,10 +74,11 @@
         margin: auto;
         right: rem(-50px);
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(lg) {
             right: 0;
             left: 0;
             width: fit-content;
+            height: rem(330px);
         }
     }
 
@@ -88,17 +88,13 @@
         margin: auto;
 
         img {
-            max-width: rem(490px);
-
-            @media (width <= 1700px) {
-                max-width: rem(400px);
-            }
-
-            @include media-breakpoint-down(xxl) {
-                max-width: rem(320px);
-            }
+            max-width: rem(499px);
 
             @include media-breakpoint-down(lg) {
+                max-width: rem(340px);
+            }
+
+            @include media-breakpoint-down(md) {
                 max-width: rem(220px);
             }
         }
@@ -109,159 +105,169 @@
         left: rem(10px);
         top: rem(90px);
         filter: drop-shadow(rem(32px 24px 15px) rgba(#2c2c2c, 0.2));
+        width: rem(366px);
+        height: rem(226px);
 
-        @media (width <= 1700px) {
-            left: rem(40px);
-            top: rem(70px);
-
-            img {
-                max-width: rem(280px);
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xxl) {
+        @include media-breakpoint-down(lg) {
+            top: rem(45px);
+            left: rem(15px);
+            width: rem(250px);
+            height: rem(182px);
+        }
+
+        @include media-breakpoint-down(md) {
             top: rem(40px);
             left: rem(20px);
-
-            img {
-                max-width: 150px;
-            }
+            width: rem(150px);
+            height: rem(92px);
         }
     }
 
     &__donut {
         position: absolute;
         top: rem(-10px);
-        right: rem(-130px);
+        right: rem(-140px);
         filter: drop-shadow(-5px 10px 15px rgba(#2c2c2c, 0.2));
+        width: rem(185px);
+        height: rem(185px);
 
-        @media (width <= 1700px) {
-            right: rem(-80px);
-
-            img {
-                max-width: rem(105px);
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xxl) {
-            right: rem(-30px);
-
-            img {
-                max-width: rem(85px);
-            }
+        @include media-breakpoint-down(lg) {
+            right: rem(-40px);
+            width: rem(85px);
+            height: rem(85px);
         }
     }
 
     &__toaster {
         position: absolute;
         bottom: rem(130px);
-        left: rem(-65px);
+        left: rem(-60px);
         filter: drop-shadow(rem(16px 15px 15px) rgba(#2c2c2c, 0.2));
+        width: rem(244px);
+        height: rem(244px);
 
-        @media (width <= 1700px) {
-            left: 0;
-
-            img {
-                max-width: rem(175px);
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xxl) {
-            left: rem(-20px);
-            bottom: rem(80px);
+        @include media-breakpoint-down(lg) {
+            bottom: rem(100px);
+            left: rem(-35px);
+            width: rem(140px);
+            height: rem(140px);
+        }
 
-            img {
-                max-width: rem(84px);
-            }
+        @include media-breakpoint-down(md) {
+            left: rem(-50px);
+            bottom: rem(50px);
+            width: rem(114px);
+            height: rem(114px);
         }
     }
 
     &__airpods {
         top: rem(40px);
-        left: rem(-200px);
+        left: rem(-140px);
         position: absolute;
+        width: rem(200px);
+        height: rem(215px);
 
-        @media (width <= 1700px) {
-            left: rem(-60px);
-
-            img {
-                max-width: rem(125px);
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xxl) {
-            left: rem(-40px);
-            top: rem(-10px);
+        @include media-breakpoint-down(lg) {
+            left: rem(-60px);
+            top: rem(-40px);
+            width: rem(120px);
+            height: rem(120px);
+        }
 
-            img {
-                max-width: 75px;
-            }
+        @include media-breakpoint-down(md) {
+            left: rem(-40px);
+            top: rem(-20px);
+            width: rem(75px);
+            height: rem(80px);
         }
     }
 
     &__cube {
         position: absolute;
-        bottom: rem(70px);
+        bottom: rem(140px);
         right: rem(-150px);
+        width: rem(124px);
+        height: rem(112px);
 
-        @include media-breakpoint-down(xxl) {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @include media-breakpoint-down(lg) {
             right: rem(-100px);
             bottom: 0;
-
-            img {
-                max-width: 85px;
-            }
+            width: rem(85px);
+            height: rem(80px);
         }
     }
 
     &__cone {
         position: absolute;
-        left: rem(-300px);
-        bottom: rem(-60px);
+        left: rem(-200px);
+        bottom: rem(-30px);
+        width: rem(95px);
+        height: rem(120px);
 
-        @media (width <= 1700px) {
-            left: rem(-100px);
-
-            img {
-                max-width: rem(65px);
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xxl) {
+        @include media-breakpoint-down(lg) {
             left: unset;
             right: rem(30px);
             bottom: rem(-50px);
-
-            img {
-                max-width: 34px;
-            }
+            width: rem(34px);
+            height: rem(48px);
         }
     }
 
     &__cheese {
         position: absolute;
-        left: rem(-360px);
+        left: rem(-380px);
         top: 0;
+        width: rem(340px);
+        height: rem(320px);
 
         img {
-            max-width: rem(285px);
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @media (width <= 1700px) {
+        @include media-breakpoint-down(lg) {
             left: rem(-60px);
-
-            img {
-                max-width: rem(125px);
-            }
-        }
-
-        @include media-breakpoint-down(xxl) {
-            left: rem(-40px);
-            top: 0;
-
-            img {
-                max-width: 95px;
-            }
+            top: rem(-50px);
+            width: rem(95px);
+            height: rem(95px);
         }
     }
 }

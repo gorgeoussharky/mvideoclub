@@ -9,10 +9,6 @@
     text-decoration: none;
     font-family: Roboto, sans-serif;
 
-    @media (width <= 1700px) {
-        font-size: rem(20px);
-    }
-
     @include media-breakpoint-down(lg) {
         font-size: rem(16px);
         padding: rem(14px 10px);
@@ -22,7 +18,7 @@
 %btn-main {
     @extend %btn;
 
-    background: #e31235;
+    background: $main;
     color: #fff;
     transition: 500ms;
 

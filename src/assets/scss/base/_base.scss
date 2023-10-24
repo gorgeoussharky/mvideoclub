@@ -1,5 +1,10 @@
 html {
     overflow-x: hidden;
+    font-size: 0.85vw;
+
+    @media (width >= 1920px) {
+        font-size: 16px;
+    }
 
     @include media-breakpoint-down(lg) {
         font-size: 14px;
@@ -26,17 +31,21 @@ html {
 }
 
 %container {
-    width: calc(100% - 40px);
-    max-width: 1516px;
+    width: calc(100% - rem(40px));
+    max-width: rem(1516px);
     margin: auto;
 }
 
 .mclub {
     font-family: StyreneBLC, sans-serif;
     background-color: #f5f5f6;
-    padding: rem(48px 0);
+    padding: rem(54px 0);
     position: relative;
     overflow: hidden;
+
+    @include media-breakpoint-down(md) {
+        padding: rem(32px 0);
+    }
 
     &__line {
         position: absolute;

@@ -27,7 +27,7 @@
 .condition-item {
     &__wrap {
         border-radius: rem(56px);
-        background: #e31235;
+        background: $main;
         padding: rem(100px 80px);
         padding-right: rem(130px);
         position: relative;
@@ -77,9 +77,6 @@
         position: relative;
         z-index: 10;
 
-        @include media-breakpoint-down(xxl) {
-            font-size: rem(32px);
-        }
 
         @include media-breakpoint-down(lg) {
             font-size: rem(24px);
@@ -128,7 +125,7 @@
             line-height: 100%;
             letter-spacing: rem(-25px);
 
-            @include media-breakpoint-down(xxl) {
+            @include media-breakpoint-down(lg) {
                 font-size: rem(160px);
                 letter-spacing: rem(-20px);
             }
@@ -238,7 +235,7 @@
                 max-height: 100%;
             }
 
-            @include media-breakpoint-down(xxl) {
+            @include media-breakpoint-down(lg) {
                 width: rem(56px);
                 height: rem(56px);
             }
@@ -249,7 +246,7 @@
             color: #fff;
             line-height: 130%;
 
-            @include media-breakpoint-down(xxl) {
+            @include media-breakpoint-down(lg) {
                 font-size: rem(16px);
                 max-width: rem(200px);
 
@@ -264,7 +261,7 @@
                 display: block;
                 margin-bottom: rem(8px);
 
-                @include media-breakpoint-down(xxl) {
+                @include media-breakpoint-down(lg) {
                     font-size: rem(20px);
                     margin-bottom: rem(4px);
                 }
@@ -277,7 +274,7 @@
             padding-top: rem(110px);
             padding-bottom: rem(110px);
 
-            @include media-breakpoint-down(xxl) {
+            @include media-breakpoint-down(lg) {
                 padding-top: rem(50px);
                 padding-bottom: rem(80px);
             }
@@ -288,7 +285,12 @@
         }
 
         .condition-item__img {
+            width: rem(265px);
+            height: rem(265px);
+
             @include media-breakpoint-down(lg) {
+                width: rem(185px);
+                height: rem(185px);
                 top: unset;
                 bottom: rem(180px);
                 left: 0;
@@ -318,13 +320,12 @@
         .condition-item__img {
             bottom: 0;
             top: unset;
+            width: rem(744px);
+            height: rem(470px);
 
             @include media-breakpoint-down(lg) {
                 width: 100%;
-
-                img {
-                    width: 100%;
-                }
+                height: auto;
             }
         }
     }

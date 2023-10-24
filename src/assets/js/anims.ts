@@ -4,27 +4,16 @@ import Parallax from 'parallax-js'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const isMobile = window.matchMedia('(max-width: 768px)').matches
+const isMobile = window.matchMedia('(max-width: 991px)').matches
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const initParallax = () => {
     const parallaxScenes = document.querySelectorAll('[data-parallax]')
 
     parallaxScenes.forEach((scene) => {
-
-        const animatedLayers = scene.querySelectorAll('[data-animate]')
-
-        animatedLayers.forEach((image) => {
-            (image as HTMLElement).style.height = `${(image as HTMLElement).offsetHeight}px`;
-            (image as HTMLElement).style.width = `${(image as HTMLElement).offsetWidth}px`
+        new Parallax(scene as HTMLElement, {
+            selector: '[data-layer]',
+            relativeInput: true,
         })
-
-        setTimeout(() => {
-            new Parallax(scene as HTMLElement, {
-                selector: '[data-layer]',
-                relativeInput: true
-            })
-        }, 400)
     })
 }
 
@@ -61,60 +50,11 @@ const initHeroAnimations = () => {
         })
     }
 
-    const leaveFade = () => {
-        gsap.to(heroImages, {
-            x: '20vw',
-            opacity: 0,
-            duration: 1,
-            ease: 'back.out(2)',
-        })
-
-        gsap.to(fadesLeft, {
-            x: '20vw',
-            opacity: 0,
-            duration: 1,
-            ease: 'back.out(1)',
-        })
-
-        gsap.to(fadesRight, {
-            x: '-20vw',
-            opacity: 0,
-            duration: 1,
-            ease: 'back.out(1)',
-        })
-    }
-
-    const enterBackFade = () => {
-        gsap.to(heroImages, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            delay: i => 0.25 * i,
-            ease: 'back.out(2)',
-        })
-
-        gsap.to(fadesLeft, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'back.out(1)',
-        })
-
-        gsap.to(fadesRight, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'back.out(1)',
-        })
-    }
-
     ScrollTrigger.create({
         trigger: hero,
         start: 'top 30%',
         end: '60% top',
         onEnter: enterFade,
-        onLeave: leaveFade,
-        onEnterBack: enterBackFade,
     })
 }
 
@@ -128,9 +68,8 @@ const initCashbackAnimations = () => {
     const cirlceContent = cashback.querySelector('.cashback__circle-content')
     const images = cashback.querySelectorAll('[data-animate]')
 
-    gsap.set(circle, {
+    gsap.set(images, {
         opacity: 0,
-        // scale: 4,
     })
 
     let isAnimating = false
@@ -141,31 +80,16 @@ const initCashbackAnimations = () => {
 
         const tl = gsap.timeline()
 
+        tl.to(images, {
+            duration: 0,
+            opacity: 1,
+        })
+
         isAnimating = true
 
-        // tl.to(circle, {
-        //     scale: 1,
-        //     opacity: 1,
-        //     duration: 0.75,
-        //     ease: 'power1.in',
-        // })
-
-        tl.to(circle, {
-            scale: 0.6,
-            opacity: 1,
-            duration: 0.35,
-            ease: 'power1.in',
-        })
-
-        tl.to(circle, {
-            scale: 1,
-            duration: 0.75,
-            ease: 'power1.out',
-        })
-
-        tl.from(cirlceContent, {
-            opacity: 0,
-            scale: 0,
+        tl.call(() => {
+            circleWrap?.classList.add('cashback__circle--layers')
+            isAnimating = false
         })
 
         tl.from(images, {
@@ -176,40 +100,16 @@ const initCashbackAnimations = () => {
             opacity: 0,
             scale: 0,
             duration: isMobile ? 0.35 : 0.5,
-            ease: 'power1.out',
-            delay: i => isMobile ? 0.1 * i : 0.2 * i,
-        })
-  
-        tl.call(() => {
-            circleWrap?.classList.add('cashback__circle--layers')
-            isAnimating = false
-        })
-    }
-
-    const leaveAnims = () => {
-        if (isAnimating) return
-
-        if (!circle || !cirlceContent) return
-
-        circleWrap?.classList.remove('cashback__circle--layers')
-        
-        gsap.to(circle, {
-            scale: 0,
-            opacity: 0,
-            duration: 0.35,
-            ease: 'power1.out',
+            ease: 'back.out(2)',
+            delay: i => (isMobile ? 0.1 * i : 0.2 * i),
         })
     }
 
     ScrollTrigger.create({
         trigger: cashback,
-        start: 'top center',
-        end: '70% top',
+        start: isMobile ? '5% 50%' : '5% 50%',
         onEnter: enterAnims,
-        onLeave: leaveAnims,
-        onEnterBack: enterAnims,
-        onLeaveBack: leaveAnims,
-        fastScrollEnd: 1000,
+        once: true,
     })
 }
 
@@ -225,44 +125,22 @@ const initCategoriesAnimations = () => {
         x: '-20vw',
     })
 
-    const enterFade = () => {
-        gsap.to(fadesRight, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
-        })
-    }
+    fadesRight.forEach((el) => {
+        const enterFade = () => {
+            gsap.to(el, {
+                x: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'back.out(1)',
+            })
+        }
 
-    const leaveFade = () => {
-        gsap.to(fadesRight, {
-            x: '-20vw',
-            opacity: 0,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
+        ScrollTrigger.create({
+            trigger: el,
+            start: isMobile ? '10% bottom' : '15% bottom',
+            end: 'bottom top',
+            onEnter: enterFade,
         })
-    }
-
-    const enterBackFade = () => {
-        gsap.to(fadesRight, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
-        })
-    }
-
-    ScrollTrigger.create({
-        trigger: section,
-        start: 'top center',
-        end: '70% top',
-        onEnter: enterFade,
-        onLeave: leaveFade,
-        onEnterBack: enterBackFade,
-        onLeaveBack: leaveFade,
     })
 }
 
@@ -278,50 +156,28 @@ const initConditionsAnimations = () => {
         x: '-20vw',
     })
 
-    const enterFade = () => {
-        gsap.to(fadesRight, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
-        })
-    }
+    fadesRight.forEach((el) => {
+        const enterFade = () => {
+            gsap.to(el, {
+                x: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'back.out(1)',
+            })
+        }
 
-    const leaveFade = () => {
-        gsap.to(fadesRight, {
-            x: '-20vw',
-            opacity: 0,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
+        ScrollTrigger.create({
+            trigger: el,
+            start: isMobile ? '10% bottom' : '15% bottom',
+            end: 'bottom top',
+            onEnter: enterFade,
         })
-    }
-
-    const enterBackFade = () => {
-        gsap.to(fadesRight, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
-        })
-    }
-
-    ScrollTrigger.create({
-        trigger: section,
-        start: '30% bottom',
-        end: 'bottom top',
-        onEnter: enterFade,
-        onLeave: leaveFade,
-        onEnterBack: enterBackFade,
-        onLeaveBack: leaveFade,
     })
 }
 
 const initAppsAnimations = () => {
     const section = document.querySelector('.mobile-apps')
-    
+
     if (!section) return
 
     const fadesRight = section.querySelectorAll('[data-fade-right]')
@@ -352,7 +208,7 @@ const initAppsAnimations = () => {
 
         if (phoneWrap) {
             tl.to(phoneWrap, {
-                top: isMobile? 0 : 100,
+                top: isMobile ? 0 : 100,
                 duration: 1,
                 opacity: 1,
                 ease: 'back.out(1)',
@@ -367,38 +223,10 @@ const initAppsAnimations = () => {
         }
     }
 
-    const leaveBackFade = () => {
-        gsap.to(fadesRight, {
-            x: '-20vw',
-            opacity: 0,
-            duration: 1,
-            delay: i => i * 0.25,
-            ease: 'back.out(1)',
-        })
-
-        if (phoneWrap) {
-            gsap.to(phoneWrap, {
-                top: '100vh',
-                duration: 2,
-                opacity: 0,
-                ease: 'back.out(1)',
-            })
-        }
-
-        if (bonusCard) {
-            gsap.to(bonusCard, {
-                scale: 0.765,
-                ease: 'back.out(1)',
-            })
-        }
-    }
-
     ScrollTrigger.create({
         trigger: section,
-        start: 'top bottom',
-        end: '40% top',
+        start: isMobile ? '10% bottom' : '30% bottom',
         onEnter: enterFade,
-        onLeaveBack: leaveBackFade,
     })
 }
 

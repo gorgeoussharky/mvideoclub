@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-base-to-string */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { parse } from 'path'
 
@@ -10,7 +9,15 @@ interface FileFormat {
 
 const img = (
     src: string,
-    block: { fn: (arg: { base: string; webp: string | undefined; avif: string | undefined }) => () => void }
+    unlazy: boolean,
+    block: {
+        fn: (arg: {
+            base: string
+            webp: string | undefined
+            avif: string | undefined
+            unlazy: boolean | undefined
+        }) => () => void
+    },
 ) => {
     const srcName = src
     const { name, ext, dir } = parse(srcName)
@@ -39,7 +46,7 @@ const img = (
 
     const { base, webp, avif } = file
 
-    return block.fn({ base, webp, avif })
+    return block.fn({ base, webp, avif, unlazy })
 }
 
 export default img

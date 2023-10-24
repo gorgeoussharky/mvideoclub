@@ -3,8 +3,8 @@
 {{#if data-layer }} data-layer {{/if}}
 {{#if data-depth }} data-depth="{{data-depth}}" {{/if}}
 >
-    {{#img src}}
+    {{#img src unlazy }}
         <source srcset='{{avif}}' type='image/avif' >
         <img {{#unless unlazy}} loading="lazy" {{/unless}} src='{{webp}}' alt='{{alt}}'>
-    {{/img}}
+    {{/img }}
 </picture>

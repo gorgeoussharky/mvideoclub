@@ -9,17 +9,18 @@
         margin-top: 0;
         z-index: 10;
         position: relative;
-        min-height: 50vh;
+        min-height: rem(768px);
 
         @include media-breakpoint-down(lg) {
             grid-template-columns: 1fr 1fr;
+            min-height: rem(420px);
         }
 
         @include media-breakpoint-down(md) {
             grid-template-columns: 1fr;
             gap: rem(48px);
             margin-top: rem(40px);
-            min-height: rem(550px);
+            min-height: rem(580px);
         }
     }
 
@@ -31,11 +32,7 @@
         letter-spacing: -4px;
         margin-bottom: rem(80px);
 
-        @media (width <= 1700px) {
-            font-size: rem(48px);
-        }
-
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(lg) {
             font-size: rem(32px);
             letter-spacing: rem(-1px);
             line-height: 120%;
@@ -67,45 +64,56 @@
             width: auto;
             height: rem(64px);
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(lg) {
                 height: rem(32px);
             }
         }
     }
 
-    &__phone-wrap {
-        position: relative;
-        width: max-content;
-        margin-left: auto;
-        margin-right: rem(100px);
-        top: rem(100px);
+    &__phone {
+        width: rem(460px);
 
         img {
             width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
+    }
 
-        @include media-breakpoint-down(xl) {
+    &__phone-wrap {
+        position: relative;
+        margin-left: auto;
+        margin-right: rem(100px);
+        top: rem(100px);
+        width: rem(490px);
+
+        @include media-breakpoint-down(lg) {
             margin: 0 auto;
             max-width: rem(300px);
         }
 
         @include media-breakpoint-down(md) {
             top: 0;
-            max-width: rem(225px);
+            width: rem(225px);
+            min-height: rem(350px);
         }
     }
 
     &__bonus-card {
         transform: scale(0.765);
-        left: -73px;
-        top: 81px;
+        left: rem(-73px);
+        top: rem(81px);
         transform-origin: right bottom;
         position: absolute;
-        max-width: rem(460px);
+        width: rem(465px);
+        height: rem(290px);
 
         @include media-breakpoint-down(lg) {
-            top: rem(30px);
-            left: rem(-50px);
+            transform-origin: right top;
+            top: rem(75px);
+            left: rem(-45px);
+            width: rem(220px);
+            height: rem(140px);
         }
     }
 }

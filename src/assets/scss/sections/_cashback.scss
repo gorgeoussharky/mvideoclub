@@ -3,30 +3,24 @@
         @extend %container;
 
         position: relative;
-        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 10;
+        margin-top: rem(205px);
+        margin-bottom: rem(265px);
 
-        @media (width <= 1700px) {
+        @include media-breakpoint-down(md) {
             min-height: 1px;
-            margin-top: rem(40vh);
-            margin-bottom: rem(30vh);
-        }
-
-        @include media-breakpoint-down(xxl) {
-            margin-top: rem(200px);
-            margin-bottom: rem(150px);
+            margin-top: rem(150px);
+            margin-bottom: rem(180px);
         }
     }
 
     &__circle {
-        width: 35vw;
-        height: 35vw;
-        max-width: rem(630px);
-        max-height: rem(630px);
-        background: #e31235;
+        width: rem(630px);
+        height: rem(630px);
+        background: $main;
         border-radius: 50%;
         display: flex;
         flex-direction: column;
@@ -39,25 +33,15 @@
         letter-spacing: -4px;
         text-align: left;
 
-        @media (width <= 1700px) {
-            font-size: rem(38px);
-            max-width: rem(500px);
-            max-height: rem(500px);
+        @include media-breakpoint-down(lg) {
+            width: rem(520px);
+            height: rem(520px);
         }
 
-        @include media-breakpoint-down(xxl) {
-            font-size: rem(24px);
-            letter-spacing: normal;
-        }
 
-        @include media-breakpoint-down(xl) {
-            width: 100vw;
-            height: 100vw;
-        }
-
-        @include media-breakpoint-down(sm) {
-            max-width: rem(320px);
-            max-height: rem(320px);
+        @include media-breakpoint-down(md) {
+            width: rem(320px);
+            height: rem(320px);
             font-size: rem(24px);
             letter-spacing: normal;
         }
@@ -75,8 +59,7 @@
             transform: scale(0);
             transition: 1000ms;
 
-
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(md) {
                 width: calc(100% + rem(60px));
                 height: calc(100% + rem(60px));
                 left: rem(-30px);
@@ -97,12 +80,19 @@
             transform: scale(0);
             transition: 1000ms;
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(md) {
                 width: calc(100% + rem(160px));
                 height: calc(100% + rem(160px));
                 left: rem(-80px);
                 top: rem(-80px);
             }
+        }
+
+        &::after,
+        &::before {
+            transform: scale(1);
+            animation: pulsate 2.5s ease-out 0s infinite;
+            animation-direction: normal;
         }
 
         &--layers {
@@ -115,7 +105,7 @@
         }
 
         &-content {
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(md) {
                 transform: translateX(-10px);
             }
 
@@ -139,12 +129,14 @@
             font-size: rem(300px);
             font-weight: 500;
             line-height: 80%;
-            letter-spacing: -16px;
+            letter-spacing: rem(-16px);
             position: relative;
             margin-bottom: rem(44px);
 
-            @media (width <= 1700px) {
-                font-size: rem(220px);
+            @include media-breakpoint-down(lg) {
+                font-size: rem(260px);
+                margin-bottom: rem(28px);
+                text-shadow: rem(0px 40px 39px) rgba(91 7 21 / 25%);
             }
 
             @include media-breakpoint-down(md) {
@@ -156,6 +148,7 @@
             &::before {
                 content: "";
                 background-image: url("@/assets/img/cashback_from.svg");
+                background-repeat: no-repeat;
                 width: rem(70px);
                 height: rem(70px);
                 background-size: contain;
@@ -165,6 +158,12 @@
                 filter: drop-shadow(rem(0px 4px 4px) rgba(0 0 0 / 20%));
 
                 @include media-breakpoint-down(lg) {
+                    width: rem(50px);
+                    height: rem(50px);
+                    left: rem(15px);
+                }
+
+                @include media-breakpoint-down(md) {
                     width: rem(35px);
                     height: rem(35px);
                     left: rem(5px);
@@ -174,6 +173,7 @@
             &::after {
                 content: "";
                 background-image: url("@/assets/img/cashback_percentage.svg");
+                background-repeat: no-repeat;
                 width: rem(77px);
                 height: rem(77px);
                 background-size: contain;
@@ -183,6 +183,13 @@
                 filter: drop-shadow(rem(0px 20px 30px) rgba(0 0 0 / 20%));
 
                 @include media-breakpoint-down(lg) {
+                    width: rem(60px);
+                    height: rem(60px);
+                    right: rem(-30px);
+                    top: rem(30px);
+                }
+
+                @include media-breakpoint-down(md) {
                     width: rem(38px);
                     height: rem(38px);
                     top: rem(10px);
@@ -196,11 +203,6 @@
             width: 95%;
             margin-top: rem(10px);
 
-            @media (width <= 1700px) {
-                width: 110%;
-                margin-top: 6px;
-            }
-
             &--right {
                 text-align: right;
             }
@@ -209,147 +211,145 @@
 
     &__alice {
         position: absolute;
-        left: 0;
-        top: rem(-150px);
+        left: rem(24px);
+        top: rem(-170px);
+        width: rem(236px);
+        height: rem(236px);
 
-        @media (width <= 1700px) {
-            img {
-                max-width: 170px;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(md) {
             top: rem(-130px);
             left: rem(-10px);
-
-            img {
-                max-width: 130px;
-            }
+            width: rem(130px);
+            height: rem(130px);
         }
     }
 
     &__kettle {
         position: absolute;
         right: rem(-160px);
-        bottom: rem(120px);
+        bottom: rem(110px);
+        width: rem(210px);
+        height: rem(230px);
 
-        @media (width <= 1700px) {
-            bottom: rem(60px);
-            right: rem(-220px);
-
-            img {
-                max-width: 150px;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(md) {
             right: rem(-35px);
             bottom: rem(50px);
-
-            img {
-                max-width: 95px;
-            }
+            width: rem(95px);
+            height: rem(102px);
         }
     }
 
     &__airpods {
         position: absolute;
-        top: rem(-270px);
-        left: rem(-230px);
+        top: rem(-250px);
+        left: rem(-340px);
+        width: rem(200px);
+        height: rem(200px);
 
-        @media (width <= 1700px) {
-            img {
-                max-width: 170px;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(md) {
             display: none;
         }
     }
 
     &__airpods-max {
         position: absolute;
-        top: rem(-40px);
-        right: rem(-420px);
+        top: rem(0px);
+        right: rem(-460px);
+        width: rem(280px);
+        height: rem(300px);
 
-        @media (width <= 1700px) {
-            right: rem(-320px);
-
-            img {
-                max-width: 220px;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(md) {
             display: none;
         }
     }
 
     &__donut {
         position: absolute;
-        top: rem(70px);
-        left: rem(-420px);
+        top: rem(120px);
+        left: rem(-400px);
+        width: rem(180px);
+        height: rem(185px);
 
-        @media (width <= 1700px) {
-            img {
-                max-width: 150px;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(md) {
             left: rem(-50px);
             bottom: 0;
             top: 0;
             margin: auto;
-            height: fit-content;
-
-            img {
-                max-width: 95px;
-            }
+            width: rem(85px);
+            height: rem(90px);
         }
     }
 
     &__push {
         position: absolute;
+        width: rem(324px);
+        height: rem(200px);
 
-        @media (width <= 1700px) {
-            img {
-                max-width: 240px;
-            }
+        img {
+            width: 100%;
+            height: 100%;
         }
 
-        @include media-breakpoint-down(xl) {
-            img {
-                max-width: 165px;
-            }
+        @include media-breakpoint-down(md) {
+            width: rem(165px);
+            height: rem(100px);
         }
 
         &--1 {
-            left: -320px;
+            left: rem(-320px);
             bottom: 0;
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(md) {
                 left: 0;
                 bottom: rem(-80px);
             }
         }
 
         &--2 {
-            top: -120px;
-            right: -140px;
+            top: rem(-90px);
+            right: rem(-175px);
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(md) {
                 right: 0;
                 top: rem(-80px);
             }
         }
 
         &--3 {
-            right: -190px;
-            bottom: -150px;
+            right: rem(-190px);
+            bottom: rem(-150px);
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(md) {
                 display: none;
             }
         }
@@ -357,24 +357,26 @@
 
     &__cheese {
         position: absolute;
-        bottom: rem(-100px);
+        bottom: rem(-200px);
         right: 0;
-        left: 0;
+        left: rem(-400px);
         margin: auto;
-        width: fit-content;
         z-index: -40;
+        width: rem(190px);
+        height: rem(170px);
+
+        @include media-breakpoint-down(md) {
+            width: rem(122px);
+            height: rem(110px);
+            bottom: rem(-120px);
+            left: 0;
+        }
 
         img {
-            max-width: 190px;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @media (width <= 1700px) {
-            bottom: rem(60px);
-            width: fit-content;
-
-            img {
-                max-width: 120px;
-            }
-        }
     }
 }

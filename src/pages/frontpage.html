@@ -12,31 +12,31 @@
             <div class="hero__imgs">
                 <div class="hero__phone-wrap" data-fade-left>
                     <div class="hero__phone">
-                        {{> picture data-layer=true data-depth="0.1" src="iphone.png" alt="" }}
+                        {{> picture unlazy=true data-layer=true data-depth="0.05" src="iphone.png" alt="" }}
                     </div>
                     <div class="hero__push">
-                        {{> picture data-layer=true data-depth="0.1" src="push.png" alt="" }}
+                        {{> picture data-layer=true data-depth="0.05" src="push.png" alt="" }}
                     </div>
                 </div>
                 <div data-animate class="hero__airpods">
-                    {{> picture data-depth="0.2" data-layer=true src="airpods.png" alt="" }}
+                    {{> picture data-depth="0.5" data-layer=true src="airpods.png" alt="" }}
                 </div>
                 <div data-animate class="hero__toaster">
-                    {{> picture  data-depth="0.2" data-layer=true src="toaster.png" alt="" }}
+                    {{> picture  data-depth="0.1" data-layer=true src="toaster.png" alt="" }}
                 </div>
                 <div data-animate class="hero__donut">
-                    {{> picture  data-depth="0.2" data-layer=true src="donut.png" alt="" }}
+                    {{> picture  data-depth="0.4" data-layer=true src="donut.png" alt="" }}
                 </div>
                 <div data-animate class="hero__cube">
-                    {{> picture  data-depth="0.2" data-layer=true src="cube.png" alt="" }}
+                    {{> picture  data-depth="0.1" data-layer=true src="cube.png" alt="" }}
                 </div>
                 <div data-animate class="hero__cone">
-                    {{> picture  data-depth="0.2" data-layer=true src="cone.png" alt="" }}
+                    {{> picture  data-depth="0.15" data-layer=true src="cone.png" alt="" }}
                 </div>
             </div>
 
             <div data-animate class="hero__cheese">
-                {{> picture data-depth="0.2" data-layer=true src="cheese.png" alt="" }}
+                {{> picture data-depth="0.15" data-layer=true src="cheese.png" alt="" }}
             </div>
         </div>
 
@@ -53,32 +53,32 @@
                 </div>
 
                 <div data-animate class="cashback__alice">
-                    {{> picture  data-depth="0.1" data-layer=true  src="alice.png" }}
+                    {{> picture data-depth="0.1" data-layer=true  src="alice.png" }}
                 </div>
                 <div data-animate class="cashback__kettle" >
-                    {{> picture  data-depth="0.1" data-layer=true src="kettle.png" }}
+                    {{> picture data-depth="0.5" data-layer=true src="kettle.png" }}
                 </div>
                 <div data-animate class="cashback__airpods">
-                    {{> picture  data-depth="0.1" data-layer=true  src="airpods2.png" }}
+                    {{> picture data-depth="0.05" data-layer=true  src="airpods2.png" }}
                 </div>
                 <div data-animate class="cashback__airpods-max">
-                    {{> picture  data-depth="0.1" data-layer=true src="airpodsmax.png" }}
+                    {{> picture data-depth="0.15" data-layer=true src="airpodsmax.png" }}
                 </div>
                 <div  data-animate class="cashback__donut">
-                    {{> picture data-depth="0.1" data-layer=true src="donut.png" }}
+                    {{> picture data-depth="0.75" data-layer=true src="donut.png" }}
                 </div>
                 <div data-animate class="cashback__cheese" >
-                    {{> picture data-depth="0.1" data-layer=true src="cheese.png" }}
+                    {{> picture data-depth="0.15" data-layer=true src="cheese.png" }}
                 </div>
 
                 <div data-animate class="cashback__push cashback__push--1">
-                    {{> picture src="push_blender.png" }}
+                    {{> picture data-depth="0.25" data-layer=true src="push_blender.png" }}
                 </div>
                 <div data-animate class="cashback__push cashback__push--2">
-                    {{> picture src="push_vacuum.png" }}
+                    {{> picture data-depth="0.2" data-layer=true src="push_vacuum.png" }}
                 </div>
                 <div data-animate class="cashback__push cashback__push--3">
-                    {{> picture src="push_toaster.png" }}
+                    {{> picture data-depth="0.15" data-layer=true src="push_toaster.png" }}
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
                             {{{this.text}}}
                         </div>
 
-                        {{> picture class="cashback-item__img" src=this.img }}
+                        {{> picture unlazy=true class="cashback-item__img" src=this.img }}
                     </div>
                 </li>
                 {{/each}}
@@ -178,11 +178,11 @@
 
                         
                         <picture class="condition-item__img">
-                            {{#img 'condition2_sm.png'}}
+                            {{#img 'condition2_sm.png' false}}
                             <source media="(max-width: 991px)" srcset="{{avif}}" type="image/avif">
                             <source media="(max-width: 991px)" srcset="{{webp}}" type="image/webp">
                             {{/img}}
-                            {{#img 'condition2.png'}}
+                            {{#img 'condition2.png' false}}
                             <source srcset="{{avif}}" type="image/avif">
                             <img loading="lazy" src="{{webp}}" alt="">
                             {{/img}}
